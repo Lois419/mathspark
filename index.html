@@ -1,14 +1,174 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathSpark - Master Math the Fun Way!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Added for horizontal scrolling if needed in feature list */
+        .feature-list {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 15px; /* Add padding for scrollbar */
+        }
+
+        .feature-item {
+            display: inline-block; /* Display items inline for horizontal scroll */
+            margin-right: 20px; /* Space between items */
+            white-space: normal; /* Allow text to wrap within the item */
+            vertical-align: top; /* Align items to the top */
+        }
+
+        /* Add styles for background image in hero section */
+        .hero {
+            background-image: url('https://via.placeholder.com/1200x400'); /* Placeholder background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+    </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header>
+        <div class="container">
+            <div class="site-title">MathSpark</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/lessons.html">Lessons</a></li>
+                    <li><a href="/quizzes.html">Quizzes</a></li>
+                    <li><a href="/test.html">Test</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="/login.html" class="btn">Login</a>
+                <a href="/signup.html" class="btn primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Master Math the Fun Way!</h1>
+                <p>Interactive lessons, fun quizzes, and smart tests designed for Junior Secondary School students.</p>
+                <a href="/lessons.html" class="btn large">Start Learning Now</a>
+                <!-- Potential backend integration: Track clicks on this button -->
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose MathSpark?</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <img src="./images/1.png" alt="Interactive Lessons Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <h3>Interactive Lessons</h3>
+                        <p>Engage with math concepts through fun and interactive modules.</p>
+                    </div>
+                    <div class="feature-item">
+                         <img src="./images/2.png" alt="Progress Tracking Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your learning journey and see how far you've come.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/100" alt="Quizzes Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <h3>Quizzes After Each Lesson</h3>
+                        <p>Test your understanding and reinforce what you've learned.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/100" alt="Test Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <h3>End-of-Course Test</h3>
+                        <p>Assess your overall mastery of the subject matter.</p>
+                    </div>
+                    <div class="feature-item">
+                         <img src="https://via.placeholder.com/100" alt="Gamified Learning Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <h3>Gamified Learning</h3>
+                        <p>Earn points, badges, and compete with friends!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="course-preview">
+            <div class="container">
+                <h2>Explore Our Topics</h2>
+                <div class="topic-list">
+                    <div class="topic-item">
+                        <h3>Algebra Basics</h3>
+                        <p>Learn the fundamentals of algebraic expressions and equations.</p>
+                        <a href="/lessons/algebra-basics.html" class="btn">Start</a>
+                         <!-- Potential backend integration: Link to specific lesson based on user progress -->
+                    </div>
+                    <div class="topic-item">
+                        <h3>Fractions</h3>
+                        <p>Master adding, subtracting, multiplying, and dividing fractions.</p>
+                        <a href="/lessons/fractions.html" class="btn">Start</a>
+                         <!-- Potential backend integration: Link to specific lesson based on user progress -->
+                    </div>
+                    <div class="topic-item">
+                        <h3>Geometry</h3>
+                        <p>Discover the world of shapes, angles, and spatial reasoning.</p>
+                        <a href="/lessons/geometry.html" class="btn">Start</a>
+                         <!-- Potential backend integration: Link to specific lesson based on user progress -->
+                    </div>
+                     <div class="topic-item">
+                        <h3>Decimals and Percentages</h3>
+                        <p>Understand decimals, percentages, and their relationship.</p>
+                        <a href="/lessons/decimals-percentages.html" class="btn">Start</a>
+                         <!-- Potential backend integration: Link to specific lesson based on user progress -->
+                    </div>
+                     <div class="topic-item">
+                        <h3>Data Handling</h3>
+                        <p>Learn to collect, organize, and interpret data.</p>
+                        <a href="/lessons/data-handling.html" class="btn">Start</a>
+                         <!-- Potential backend integration: Link to specific lesson based on user progress -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optional Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Our Students Say</h2>
+                <div class="testimonial-list">
+                    <div class="testimonial-item">
+                        <p>"MathSpark made learning math so much fun! I actually look forward to my lessons now."</p>
+                        <p class="author">- Sarah, JSS 2 Student</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"The interactive quizzes really helped me understand where I needed more practice."</p>
+                        <p class="author">- David, JSS 1 Student</p>
+                    </div>
+                     <div class="testimonial-item">
+                        <p>"A fantastic resource for teaching junior secondary math. Highly recommended!"</p>
+                        <p class="author">- Mr. E. Jones, Math Teacher</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/help.html">Help Center</a></li>
+                </ul>
+            </nav>
+            <p>&copy; 2023 MathSpark. All rights reserved.</p>
+            <!-- Social media icons can be added here -->
+        </div>
+    </footer>
 </body>
 </html>
