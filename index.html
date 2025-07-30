@@ -23,12 +23,28 @@
 
         /* Add styles for background image in hero section */
         .hero {
-            background-image: url('https://via.placeholder.com/1200x400'); /* Placeholder background image */
+            background-image: url('images/navbar-bg.jpg'); /* Placeholder background image */
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 60px 0;
+            position: relative; /* Needed for potential overlay */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3); /* Add a semi-transparent overlay */
+        }
+
+        .hero .container {
+            position: relative; /* Bring container content above the overlay */
+            z-index: 1;
         }
 
     </style>
@@ -59,7 +75,7 @@
             <div class="container">
                 <h1>Master Math the Fun Way!</h1>
                 <p>Interactive lessons, fun quizzes, and smart tests designed for Junior Secondary School students.</p>
-                <a href="/lessons.html" class="btn large">Start Learning Now</a>
+                <a href="/signup.html" class="btn large">Start Learning Now</a>
                 <!-- Potential backend integration: Track clicks on this button -->
             </div>
         </section>
@@ -69,12 +85,12 @@
                 <h2>Why Choose MathSpark?</h2>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <img src="./images/1.png" alt="Interactive Lessons Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <img src="https://via.placeholder.com/100" alt="Interactive Lessons Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
                         <h3>Interactive Lessons</h3>
                         <p>Engage with math concepts through fun and interactive modules.</p>
                     </div>
                     <div class="feature-item">
-                         <img src="./images/2.png" alt="Progress Tracking Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                         <img src="https://via.placeholder.com/100" alt="Progress Tracking Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
                         <h3>Progress Tracking</h3>
                         <p>Monitor your learning journey and see how far you've come.</p>
                     </div>
@@ -104,31 +120,31 @@
                     <div class="topic-item">
                         <h3>Algebra Basics</h3>
                         <p>Learn the fundamentals of algebraic expressions and equations.</p>
-                        <a href="/lessons/algebra-basics.html" class="btn">Start</a>
+                        <a href="/signup.html" class="btn">Start</a>
                          <!-- Potential backend integration: Link to specific lesson based on user progress -->
                     </div>
                     <div class="topic-item">
                         <h3>Fractions</h3>
                         <p>Master adding, subtracting, multiplying, and dividing fractions.</p>
-                        <a href="/lessons/fractions.html" class="btn">Start</a>
+                        <a href="/signup.html" class="btn">Start</a>
                          <!-- Potential backend integration: Link to specific lesson based on user progress -->
                     </div>
                     <div class="topic-item">
                         <h3>Geometry</h3>
                         <p>Discover the world of shapes, angles, and spatial reasoning.</p>
-                        <a href="/lessons/geometry.html" class="btn">Start</a>
+                        <a href="/signup.html" class="btn">Start</a>
                          <!-- Potential backend integration: Link to specific lesson based on user progress -->
                     </div>
                      <div class="topic-item">
                         <h3>Decimals and Percentages</h3>
                         <p>Understand decimals, percentages, and their relationship.</p>
-                        <a href="/lessons/decimals-percentages.html" class="btn">Start</a>
+                        <a href="/signup.html" class="btn">Start</a>
                          <!-- Potential backend integration: Link to specific lesson based on user progress -->
                     </div>
                      <div class="topic-item">
                         <h3>Data Handling</h3>
                         <p>Learn to collect, organize, and interpret data.</p>
-                        <a href="/lessons/data-handling.html" class="btn">Start</a>
+                        <a href="/signup.html" class="btn">Start</a>
                          <!-- Potential backend integration: Link to specific lesson based on user progress -->
                     </div>
                 </div>
@@ -139,18 +155,37 @@
         <section class="testimonials">
             <div class="container">
                 <h2>What Our Students Say</h2>
-                <div class="testimonial-list">
-                    <div class="testimonial-item">
-                        <p>"MathSpark made learning math so much fun! I actually look forward to my lessons now."</p>
-                        <p class="author">- Sarah, JSS 2 Student</p>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>"The interactive quizzes really helped me understand where I needed more practice."</p>
-                        <p class="author">- David, JSS 1 Student</p>
-                    </div>
-                     <div class="testimonial-item">
-                        <p>"A fantastic resource for teaching junior secondary math. Highly recommended!"</p>
-                        <p class="author">- Mr. E. Jones, Math Teacher</p>
+                <div class="testimonial-controls">
+                    <button id="prev-testimonial" class="scroll-btn">&#10094;</button>
+                    <button id="next-testimonial" class="scroll-btn">&#10095;</button>
+                </div>
+                <div class="testimonial-scroll-container" id="testimonial-scroll-container">
+                    <div class="testimonial-list">
+                        <div class="testimonial-item">
+                            <img src="https://via.placeholder.com/50" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                            <p>"MathSpark made learning math so much fun! I actually look forward to my lessons now."</p>
+                            <p class="author">- Sarah, JSS 2 Student</p>
+                        </div>
+                        <div class="testimonial-item">
+                             <img src="https://via.placeholder.com/50" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                            <p>"The interactive quizzes really helped me understand where I needed more practice."</p>
+                            <p class="author">- David, JSS 1 Student</p>
+                        </div>
+                        <div class="testimonial-item">
+                             <img src="https://via.placeholder.com/50" alt="Educator Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                            <p>"A fantastic resource for teaching junior secondary math. Highly recommended!"</p>
+                            <p class="author">- Mr. E. Jones, Math Teacher</p>
+                        </div>
+                         <div class="testimonial-item">
+                             <img src="https://via.placeholder.com/50" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                            <p>"I used to struggle with fractions, but MathSpark explained them in a way I could finally understand!"</p>
+                            <p class="author">- Aisha, JSS 3 Student</p>
+                        </div>
+                         <div class="testimonial-item">
+                             <img src="https://via.placeholder.com/50" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                            <p>"The gamified learning is awesome! Earning badges keeps me motivated."</p>
+                            <p class="author">- Jamal, JSS 1 Student</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -170,5 +205,10 @@
             <!-- Social media icons can be added here -->
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="btn back-to-top">&#9650;</button>
+
+    <script src="main.js"></script>
 </body>
 </html>
