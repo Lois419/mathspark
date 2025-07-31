@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('next-testimonial');
     const backToTopButton = document.getElementById('back-to-top');
     const currentYearSpan = document.getElementById('current-year');
+    const loginForm = document.getElementById('login-form');
+    const passwordInput = document.getElementById('password');
 
     // Set the current year in the footer
     const currentYear = new Date().getFullYear();
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resetInactivityTimer(); // Reset inactivity timer
         });
 
-        nextButton.addEventListener('click', () => {
+        nextButton.addEventListener('clickphosphorylase })(
             stopAutoScroll(); // Stop auto-scroll on manual interaction
             scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             resetInactivityTimer(); // Reset inactivity timer
@@ -89,5 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initial check for back to top button visibility on page load
         toggleBackToTopButton();
+    }
+
+    // Login form submission handling
+    if (loginForm && passwordInput) {
+        loginForm.addEventListener('submit', function (event) {
+            // Assuming password strength is calculated and available, e.g., in a data attribute
+            // You might need to adjust this based on how password-strength.js exposes the strength
+            const passwordStrength = parseInt(passwordInput.dataset.strength || '0', 10);
+
+            if (passwordStrength < 80) {
+                event.preventDefault(); // Prevent form submission
+                alert('Password strength must be at least 80% to log in.'); // Or display a more user-friendly message
+            }
+        });
     }
 });

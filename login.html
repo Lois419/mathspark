@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathSpark - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/favicon.png" type="image/png">
+    <style>
+        /* Specific styles for the login page */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh; /* Center content vertically */
+            padding: 40px 0;
+        }
+
+        .login-box {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px; /* Max width for the login box */
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            color: #0056b3; /* Blue heading */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745; /* Green button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .signup-link a {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+         /* Add FirebaseUI container style */
+        #firebaseui-auth-container {
+            margin-top: 20px;
+        }
+
+        /* Password strength bar styles */
+        .password-strength-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #ddd;
+            margin-top: 5px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0%;
+            background-color: red; /* Default to red */
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="site-title">
+                <img src="./images/favicon.png" alt="MathSpark Logo" class="site-logo">
+                MathSpark
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/lessons.html">Lessons</a></li>
+                    <li><a href="/quizzes.html">Quizzes</a></li>
+                    <li><a href="/test.html">Test</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="/login.html" class="btn">Login</a>
+                <a href="/signup.html" class="btn primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="login-container">
+            <div class="login-box">
+                <h2>Login to MathSpark</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <div class="password-strength-bar">
+                            <div class="strength-bar"></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+                <div class="signup-link">
+                    Don't have an account? <a href="/signup.html">Sign up here</a>
+                </div>
+                 <!-- The firebase ui widget will be rendered here -->
+                <div id="firebaseui-auth-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/help.html">Help Center</a></li>
+                </ul>
+            </nav>
+            <p>&copy; <span id="current-year"></span> MathSpark. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/password-strength.js"></script>
+     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+     <!-- FirebaseUI (Auth) -->
+    <script src="https://cdn.firebase.google.com/libs/firebaseui/6.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.google.com/libs/firebaseui/6.0.0/firebaseui.css" />
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            // ... your firebase config
+        };
+
+        // Initialize Firebase
+        //firebase.initializeApp(firebaseConfig);
+
+        // Initialize the FirebaseUI Widget using Firebase.auth().
+       // const ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        // const uiConfig = {
+        //     callbacks: {
+        //         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+        //             // User successfully signed in.
+        //             // Return type determines whether we continue the form submission
+        //             // or whether our signInSuccessWithAuthResult handler committed to
+        //             // another action instead.
+        //             return true;
+        //         },
+        //         uiShown: function() {
+        //             // The widget is rendered. Hide the loader.
+        //             // document.getElementById('loader').style.display = 'none';
+        //         }
+        //     },
+        //     // Will use popup for IDP providers default to redirect.
+        //     signInFlow: 'popup',
+        //     signInSuccessUrl: '/', // Redirect to home page after successful login
+        //     signInOptions: [
+        //         // Email / Password Provider.
+        //         firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        //         // Google Provider.
+        //         // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        //         // You can add other providers here
+        //     ],
+        //     // Terms of service url.
+        //     // termsOfServiceUrl: '/terms.html',
+        //     // privacyPolicyUrl: '/privacy.html'
+        // };
+
+        // Start the FirebaseUI Auth UI
+        // ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+</body>
+</html>
