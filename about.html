@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MathSpark</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/favicon.png" type="image/png">
+    <style>
+        /* Add specific styles for the about page sections to match the index page design */
+        .about-hero {
+            background-image: url('images/navbar-bg.jpg'); /* Use the same background as index hero */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 0; /* Consistent padding */
+            position: relative;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Consistent overlay */
+        }
+
+        .about-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-hero h1 {
+            color: white; /* White heading color */
+            font-size: 3em; /* Consistent heading size */
+            margin-bottom: 15px;
+        }
+
+        .about-hero p {
+            font-size: 1.3em; /* Consistent paragraph size */
+        }
+
+        .our-story,
+        .our-mission,
+        .our-team,
+        .counter-section {
+            padding: 60px 0; /* Consistent section padding */
+            text-align: center;
+        }
+
+        .our-story h2,
+        .our-mission h2,
+        .our-team h2,
+        .counter-section h2 {
+            margin-bottom: 40px; /* Consistent heading margin */
+        }
+
+        .story-content,
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 40px; /* Space between text and image */
+            text-align: left;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .story-content img,
+        .mission-content img {
+            max-width: 400px; /* Max width for images in these sections */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-content img {
+             order: 1; /* Change order for mission image on larger screens */
+        }
+
+        .mission-content p {
+            order: 2; /* Change order for mission text on larger screens */
+        }
+
+        .team-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 250px; /* Adjust max-width for team members */
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 120px; /* Larger avatar size */
+            height: 120px; /* Larger avatar size */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px; /* Space below avatar */
+        }
+
+        .team-member h3 {
+            margin-top: 0;
+            color: #007bff; /* Blue for team member names */
+            font-size: 1.3em; /* Slightly larger name font size */
+        }
+
+        .team-member p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .counter-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px; /* Space between counter items */
+        }
+
+        .counter-item {
+            text-align: center;
+        }
+
+        .counter-item .count {
+            font-size: 3em; /* Large counter number */
+            font-weight: bold;
+            color: #28a745; /* Green color for counts */
+            display: block; /* Make span a block to control margin */
+            margin-bottom: 5px;
+        }
+
+        .counter-item p {
+            font-size: 1.2em; /* Slightly larger text below count */
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .story-content,
+            .mission-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .mission-content img {
+                order: 2;
+            }
+
+             .mission-content p {
+                order: 1;
+             }
+
+            .story-content img,
+            .mission-content img {
+                max-width: 100%;
+            }
+
+            .team-member {
+                max-width: 200px; /* Adjust max-width for smaller screens */
+            }
+
+             .team-avatar {
+                width: 100px;
+                height: 100px;
+             }
+
+             .counter-item .count {
+                font-size: 2.5em;
+             }
+
+             .counter-item p {
+                font-size: 1em;
+             }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="site-title">
+                <img src="./images/favicon.png" alt="MathSpark Logo" class="site-logo">
+                MathSpark
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/lessons.html">Lessons</a></li>
+                    <li><a href="/quizzes.html">Quizzes</a></li>
+                    <li><a href="/test.html">Test</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="/login.html" class="btn">Login</a>
+                <a href="/signup.html" class="btn primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="container">
+                <h1>About MathSpark</h1>
+                <p>Our mission is to make learning math engaging and accessible for all Junior Secondary School students.</p>
+            </div>
+        </section>
+
+        <section class="our-story">
+            <div class="container">
+                <h2>Our Story</h2>
+                <div class="story-content">
+                    <img src="./images/a1.jpg" alt="Our Story Image" class="story-image">
+                    <p>MathSpark was founded with the belief that math education should be an exciting journey, not a daunting challenge. We saw a need for a platform that combines interactive learning with modern technology to create a fun and effective way for students to master mathematical concepts. Our team of educators and developers are passionate about empowering students to build confidence and excel in math.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-mission">
+            <div class="container">
+                <h2>Our Mission</h2>
+                 <div class="mission-content">
+                    <p>To provide a comprehensive and engaging online learning experience that helps Junior Secondary School students develop a strong foundation in mathematics, fostering a love for learning and preparing them for future academic success.</p>
+                    <img src="./images/a2.jpg" alt="Our Mission Image" class="mission-image">
+                </div>
+            </div>
+        </section>
+
+         <section class="our-team">
+            <div class="container">
+                <h2>Our Team</h2>
+                <div class="team-list">
+                    <div class="team-member">
+                        <img src="./images/a3.jpg" alt="Team Member 1" class="team-avatar">
+                        <h3>Jane Doe</h3>
+                        <p>Lead Educator</p>
+                    </div>
+                     <div class="team-member">
+                        <img src="./images/girl2.jpg" alt="Team Member 2" class="team-avatar">
+                        <h3>John Smith</h3>
+                        <p>Lead Developer</p>
+                    </div>
+                      <div class="team-member">
+                        <img src="./images/boy2.jpg" alt="Team Member 3" class="team-avatar">
+                        <h3>Alice Johnson</h3>
+                        <p>Curriculum Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="counter-section">
+            <div class="container">
+                <h2>MathSpark in Numbers</h2>
+                <div class="counter-list">
+                    <div class="counter-item">
+                        <span class="count">0</span>
+                        <p>Parents Pleased</p>
+                    </div>
+                    <div class="counter-item">
+                         <span class="count">0</span>
+                        <p>Students Taught</p>
+                    </div>
+                    <div class="counter-item">
+                         <span class="count">0</span>
+                        <p>Awards Won</p>
+                    </div>
+                     <div class="counter-item">
+                         <span class="count">0</span>
+                        <p>Schools Served</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/help.html">Help Center</a></li>
+                </ul>
+            </nav>
+            <p>&copy; <span id="current-year"></span> MathSpark. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+     <script>
+        // Basic counter animation
+        const counters = document.querySelectorAll('.counter-item .count');
+        const speed = 200; // The lower the speed, the faster the counter
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const targetText = counter.parentElement.querySelector('p').textContent;
+                let target = 0;
+
+                // Extract target number from the paragraph text
+                if (targetText.includes('Parents Pleased')) {
+                    target = 3000; // Example target for Parents Pleased
+                } else if (targetText.includes('Students Taught')) {
+                    target = 10000; // Example target for Students Taught
+                } else if (targetText.includes('Awards Won')) {
+                    target = 50; // Example target for Awards Won
+                } else if (targetText.includes('Schools Served')) {
+                     target = 100; // Example target for Schools Served
+                }
+
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    </script>
+</body>
+</html>

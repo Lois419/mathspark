@@ -6,6 +6,7 @@
     <title>MathSpark - Master Math the Fun Way!</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/favicon.png" type="image/png"> <!-- Favicon -->
     <style>
         /* Added for horizontal scrolling if needed in feature list */
         .feature-list {
@@ -52,7 +53,10 @@
 <body>
     <header>
         <div class="container">
-            <div class="site-title">MathSpark</div>
+            <div class="site-title">
+                <img src="./images/favicon.png" alt="MathSpark Logo" class="site-logo">
+                MathSpark <!-- Logo -->
+            </div>
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
@@ -85,27 +89,27 @@
                 <h2>Why Choose MathSpark?</h2>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <img src="https://via.placeholder.com/100" alt="Interactive Lessons Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <img src="./images/1.png" alt="Interactive Lessons Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
                         <h3>Interactive Lessons</h3>
                         <p>Engage with math concepts through fun and interactive modules.</p>
                     </div>
                     <div class="feature-item">
-                         <img src="https://via.placeholder.com/100" alt="Progress Tracking Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                         <img src="./images/2.png" alt="Progress Tracking Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
                         <h3>Progress Tracking</h3>
                         <p>Monitor your learning journey and see how far you've come.</p>
                     </div>
                     <div class="feature-item">
-                        <img src="https://via.placeholder.com/100" alt="Quizzes Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <img src="./images/3.png" alt="Quizzes Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
                         <h3>Quizzes After Each Lesson</h3>
                         <p>Test your understanding and reinforce what you've learned.</p>
                     </div>
                     <div class="feature-item">
-                        <img src="https://via.placeholder.com/100" alt="Test Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                        <img src="./images/4.png" alt="Test Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
                         <h3>End-of-Course Test</h3>
                         <p>Assess your overall mastery of the subject matter.</p>
                     </div>
                     <div class="feature-item">
-                         <img src="https://via.placeholder.com/100" alt="Gamified Learning Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
+                         <img src="./images/5.png" alt="Gamified Learning Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
                         <h3>Gamified Learning</h3>
                         <p>Earn points, badges, and compete with friends!</p>
                     </div>
@@ -162,27 +166,27 @@
                 <div class="testimonial-scroll-container" id="testimonial-scroll-container">
                     <div class="testimonial-list">
                         <div class="testimonial-item">
-                            <img src="https://via.placeholder.com/50" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                            <img src="./images/girl1.jpg" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
                             <p>"MathSpark made learning math so much fun! I actually look forward to my lessons now."</p>
                             <p class="author">- Sarah, JSS 2 Student</p>
                         </div>
                         <div class="testimonial-item">
-                             <img src="https://via.placeholder.com/50" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                             <img src="./images/boy1.jpg" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
                             <p>"The interactive quizzes really helped me understand where I needed more practice."</p>
                             <p class="author">- David, JSS 1 Student</p>
                         </div>
                         <div class="testimonial-item">
-                             <img src="https://via.placeholder.com/50" alt="Educator Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                             <img src="./images/man2.jpg" alt="Educator Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
                             <p>"A fantastic resource for teaching junior secondary math. Highly recommended!"</p>
                             <p class="author">- Mr. E. Jones, Math Teacher</p>
                         </div>
                          <div class="testimonial-item">
-                             <img src="https://via.placeholder.com/50" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                             <img src="./images/girl2.jpg" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
                             <p>"I used to struggle with fractions, but MathSpark explained them in a way I could finally understand!"</p>
                             <p class="author">- Aisha, JSS 3 Student</p>
                         </div>
                          <div class="testimonial-item">
-                             <img src="https://via.placeholder.com/50" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
+                             <img src="./images/boy2.jpg" alt="Student Avatar/Logo" class="testimonial-logo"> <!-- Placeholder Logo -->
                             <p>"The gamified learning is awesome! Earning badges keeps me motivated."</p>
                             <p class="author">- Jamal, JSS 1 Student</p>
                         </div>
@@ -201,7 +205,7 @@
                     <li><a href="/help.html">Help Center</a></li>
                 </ul>
             </nav>
-            <p>&copy; 2023 MathSpark. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> MathSpark. All rights reserved.</p>
             <!-- Social media icons can be added here -->
         </div>
     </footer>
