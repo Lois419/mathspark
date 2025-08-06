@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathSpark - Login</title>
+    <title>MathSpark - Sign Up</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap"
         rel="stylesheet">
@@ -13,9 +13,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <style>
-        .login-container {
+        .signup-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,7 +22,7 @@
             padding: 40px 0;
         }
 
-        .login-box {
+        .signup-box {
             background-color: #fff;
             padding: 40px;
             border-radius: 8px;
@@ -33,7 +32,7 @@
             text-align: center;
         }
 
-        .login-box h2 {
+        .signup-box h2 {
             margin-bottom: 30px;
             color: #0056b3;
         }
@@ -41,7 +40,7 @@
         .form-group {
             margin-bottom: 20px;
             text-align: left;
-            position: relative; /* For the eye icon positioning */
+            position: relative;
         }
 
         .form-group label {
@@ -61,19 +60,10 @@
             box-sizing: border-box;
         }
 
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #777;
-        }
-
-        .login-btn {
+        .signup-btn {
             width: 100%;
             padding: 12px;
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
@@ -82,18 +72,34 @@
             transition: background-color 0.3s ease;
         }
 
-        .login-btn:hover {
-            background-color: #218838;
+        .signup-btn:hover {
+            background-color: #0056b3;
         }
 
-        .signup-link {
+        .login-link {
             margin-top: 20px;
             font-size: 0.9em;
         }
 
-        .signup-link a {
+        .login-link a {
             color: #007bff;
             font-weight: bold;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%; /* Adjusted from `calc(50% + 5px)` to align better */
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #777;
+            font-size: 1.1em;
         }
 
         .password-strength-bar {
@@ -112,26 +118,8 @@
             transition: width 0.3s ease, background-color 0.3s ease;
         }
 
-        #firebaseui-auth-container {
-            margin-top: 20px;
-        }
-
-        .forgot-password {
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-
-        .forgot-password a {
-            color: #007bff;
-        }
-
-        .error-message {
-            color: red;
-            margin-top: 10px;
-        }
-
         .strength-label {
-            text-align: center;
+            text-align: left;
             margin-top: 5px;
             font-size: 0.9em;
             color: #777;
@@ -143,14 +131,6 @@
 
         .password-wrapper input {
             padding-right: 40px; /* space for the eye icon */
-        }
-
-        .password-wrapper .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
         }
     </style>
 </head>
@@ -180,10 +160,10 @@
     </header>
 
     <main>
-        <section class="login-container">
-            <div class="login-box">
-                <h2>Login to MathSpark</h2>
-                <form id="login-form">
+        <section class="signup-container">
+            <div class="signup-box">
+                <h2>Sign Up for MathSpark</h2>
+                <form id="signup-form">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required />
@@ -199,14 +179,18 @@
                         </div>
                         <p id="strengthLabel" class="strength-label"></p>
                     </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="confirm-password" name="confirm-password" required />
+                            <i class="far fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                        </div>
+                    </div>
                     <div id="error-message" class="error-message"></div>
-                    <button type="submit" class="login-btn">Login</button>
+                    <button type="submit" class="signup-btn">Sign Up</button>
                 </form>
-                <div class="forgot-password">
-                    <a href="#">Forgot Password?</a>
-                </div>
-                <div class="signup-link">
-                    Don't have an account? <a href="/signup.html">Sign up here</a>
+                <div class="login-link">
+                    Already have an account? <a href="/login.html">Log in here</a>
                 </div>
             </div>
         </section>
@@ -248,9 +232,9 @@
             const toggle = document.querySelector(elementId);
             const password = document.querySelector(passwordId);
 
-            if(!toggle || !password) return; // exit if elements are missing
+            if (!toggle || !password) return; // exit if elements are missing
 
-            toggle.addEventListener('click', function (e) {
+            toggle.addEventListener('click', function(e) {
                 const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
                 password.setAttribute('type', type);
 
@@ -261,39 +245,38 @@
         };
 
         togglePasswordVisibility('#togglePassword', '#password');
+        togglePasswordVisibility('#toggleConfirmPassword', '#confirm-password');
 
-        const loginForm = document.getElementById('login-form');
-        if (loginForm) {
-            loginForm.addEventListener('submit', function (event) {
+        const signupForm = document.getElementById('signup-form');
+        if (signupForm) {
+            signupForm.addEventListener('submit', function(event) {
                 event.preventDefault();
 
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
                 const errorMessage = document.getElementById('error-message');
 
-                // Validate inputs
-                if (!email) {
-                    errorMessage.textContent = 'Please enter your email address.';
+                if (password !== confirmPassword) {
+                    errorMessage.textContent = "Passwords do not match";
                     return;
-                }
-                if (!password) {
-                    errorMessage.textContent = 'Please enter your password.';
-                    return;
+                } else {
+                    errorMessage.textContent = ""; // Clear any previous error message
                 }
 
-                // Sign in with email and password
-                auth.signInWithEmailAndPassword(email, password)
+                // Create User with Email and Password
+                auth.createUserWithEmailAndPassword(email, password)
                     .then((userCredential) => {
                         // Signed in
                         const user = userCredential.user;
-                        alert('Login successful! User: ' + user.email);
-                        // Redirect to home page or another desired page
-                        window.location.href = '/';
+                        alert("Signup successful! User: " + user.email);
+                        // Optionally, redirect to another page
+                        window.location.href = "/";
                     })
                     .catch((error) => {
                         const errorCode = error.code;
                         const errorMessageText = error.message;
-                        errorMessage.textContent = 'Login failed: ' + errorMessageText;
+                        errorMessage.textContent = "Signup failed: " + errorMessageText;
                     });
             });
         }
@@ -302,38 +285,43 @@
         const strengthBar = document.getElementById('strengthBar');
         const strengthLabel = document.getElementById('strengthLabel');
 
-        passwordInput.addEventListener('input', function () {
-            const password = this.value;
-            let strength = 0;
-            let strengthText = "Weak";
-            let strengthColor = "red";
+        if (passwordInput && strengthBar && strengthLabel) {
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                let strengthText = "Weak";
+                let strengthColor = "red";
 
-            // Password strength rules
-            const hasMinLength = password.length >= 8;
-            const hasLetter = /[a-zA-Z]/.test(password);
-            const hasNumber = /[0-9]/.test(password);
+                // Password strength rules
+                const hasMinLength = password.length >= 8;
+                const hasLetter = /[a-zA-Z]/.test(password);
+                const hasNumber = /[0-9]/.test(password);
+                const hasSpecial = /[!@#$%^&*]/.test(password); // Added special character rule
 
-            if (hasMinLength) strength += 30;
-            if (hasLetter) strength += 30;
-            if (hasNumber) strength += 40;
+                // Calculate strength based on rules met
+                if (hasMinLength) strength += 25;
+                if (hasLetter) strength += 25;
+                if (hasNumber) strength += 25;
+                if (hasSpecial) strength += 25;
 
-            if (strength === 100) {
-                strengthText = "Strong";
-                strengthColor = "green";
-            } else if (strength >= 60) {
-                strengthText = "Medium";
-                strengthColor = "orange";
-            } else {
-                strengthText = "Weak";
-                strengthColor = "red";
-            }
+                // Determine strength text and color
+                if (strength === 100) {
+                    strengthText = "Strong";
+                    strengthColor = "green";
+                } else if (strength >= 75) { // At least 3 out of 4 criteria
+                    strengthText = "Medium";
+                    strengthColor = "orange";
+                } else {
+                    strengthText = "Weak";
+                    strengthColor = "red";
+                }
 
-            strengthBar.style.width = strength + '%';
-            strengthBar.style.backgroundColor = strengthColor;
-            strengthLabel.textContent = `Strength: ${strengthText}`;
-            strengthLabel.style.color = strengthColor;
-
-        });
+                strengthBar.style.width = strength + '%';
+                strengthBar.style.backgroundColor = strengthColor;
+                strengthLabel.textContent = `Strength: ${strengthText}`;
+                strengthLabel.style.color = strengthColor;
+            });
+        }
     </script>
 </body>
 

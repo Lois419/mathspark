@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathSpark Lessons</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/lessons.css" />
+  <link rel="icon" href="./images/favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="site-title">
+                <img src="./images/favicon.png" alt="MathSpark Logo" class="site-logo">
+                MathSpark <!-- Logo -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/lessons.html">Lessons</a></li>
+                    <li><a href="/quizzes.html">Quizzes</a></li>
+                    <li><a href="/test.html">Test</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="/login.html" class="btn">Login</a>
+                <a href="/signup.html" class="btn primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+  <main>
+    <section class="lesson-hero">
+      <div class="lesson-container">
+        <h1>Explore Our Math Lessons</h1>
+        <p>Dive into a variety of engaging lessons from fundamentals to advanced topics.</p>
+      </div>
+    </section>
+
+    <section class="custom-lessons">
+        <div class="container">
+          <h2 class="custom-lessons-heading">Available Topics</h2>
+          <div class="custom-lessons-grid">
+            <div class="custom-lesson-card">      
+            <h3>Algebra Fundamentals</h3>
+            <p>Build a strong foundation in algebraic concepts.</p>
+            <a href="/signup.html" class="lesson-btn">Start Lesson</a>
+          </div>
+          <div class="custom-lesson-card">
+            <h3>Geometry Basics</h3>
+            <p>Explore the world of shapes, angles, and spatial reasoning.</p>
+            <a href="/signup.html" class="lesson-btn">Start Lesson</a>
+          </div>
+          <div class="custom-lesson-card">
+            <h3>Introduction to Calculus</h3>
+            <p>Get a glimpse into the fascinating world of change and motion.</p>
+            <a href="/signup.html" class="lesson-btn">Start Lesson</a>
+          </div>
+          <div class="custom-lesson-card">
+            <h3>Data Science Essentials</h3>
+            <p>Learn how to collect, analyze, and interpret data.</p>
+            <a href="/signup.html" class="lesson-btn">Start Lesson</a>
+          </div>
+          <div class="custom-lesson-card">
+            <h3>Probability and Statistics</h3>
+            <p>Understand the likelihood of events and how to analyze data sets.</p>
+            <a href="/signup.html" class="lesson-btn">Start Lesson</a>
+          </div>
+          <div class="custom-lesson-card">
+            <h3>Trigonometry</h3>
+            <p>Explore the relationships between the angles and sides of triangles.</p>
+            <a href="/signup.html" class="lesson-btn">Start Lesson</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lesson-footer">
+    <div class="lesson-container">
+      <nav>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/help.html">Help Center</a></li>
+        </ul>
+      </nav>
+      <p>&copy; <span id="current-year"></span> MathSpark. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="lesson-btn back-to-top" title="Back to top">&#9650;</button>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

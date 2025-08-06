@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | MathSpark</title>
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="./images/favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="site-title">
+                <img src="./images/favicon.png" alt="MathSpark Logo" class="site-logo">
+                MathSpark <!-- Logo -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/lessons.html">Lessons</a></li>
+                    <li><a href="/quizzes.html">Quizzes</a></li>
+                    <li><a href="/test.html">Test</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="/login.html" class="btn">Login</a>
+                <a href="/signup.html" class="btn primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Contact MathSpark</h1>
+        <p>We'd love to hear from you! Whether it's a question, suggestion, or feedback—reach out below.</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container contact-flex">
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <form action="/send-message" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit" class="btn primary">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p><strong>Email:</strong> support@mathspark.com</p>
+          <p><strong>Phone:</strong> +234-800-123-4567</p>
+          <p><strong>Location:</strong> Lagos, Nigeria</p>
+
+          <!-- Optional: Embed a map -->
+          <div class="map">
+            <iframe
+              title="MathSpark Office Location"
+              src="https://maps.google.com/maps?q=lagos,%20nigeria&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen=""
+              loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <nav aria-label="Footer Navigation">
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/help.html">Help Center</a></li>
+        </ul>
+      </nav>
+      <p>&copy; <span id="current-year"></span> MathSpark. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Auto-update current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" title="Back to top">&#x2912;</a>
+
+  <script>
+    // Back to Top button functionality
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) { // Show button after scrolling 300px
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Smooth scrolling
+      });
+    });
+  </script>
+</body>
+</html>

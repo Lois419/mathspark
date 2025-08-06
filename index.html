@@ -7,48 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="./images/favicon.png" type="image/png"> <!-- Favicon -->
-    <style>
-        /* Added for horizontal scrolling if needed in feature list */
-        .feature-list {
-            overflow-x: auto;
-            white-space: nowrap;
-            padding-bottom: 15px; /* Add padding for scrollbar */
-        }
-
-        .feature-item {
-            display: inline-block; /* Display items inline for horizontal scroll */
-            margin-right: 20px; /* Space between items */
-            white-space: normal; /* Allow text to wrap within the item */
-            vertical-align: top; /* Align items to the top */
-        }
-
-        /* Add styles for background image in hero section */
-        .hero {
-            background-image: url('images/navbar-bg.jpg'); /* Placeholder background image */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 60px 0;
-            position: relative; /* Needed for potential overlay */
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3); /* Add a semi-transparent overlay */
-        }
-
-        .hero .container {
-            position: relative; /* Bring container content above the overlay */
-            z-index: 1;
-        }
-
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -57,7 +16,10 @@
                 <img src="./images/favicon.png" alt="MathSpark Logo" class="site-logo">
                 MathSpark <!-- Logo -->
             </div>
-            <nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/lessons.html">Lessons</a></li>
@@ -86,36 +48,37 @@
 
         <section class="features">
             <div class="container">
-                <h2>Why Choose MathSpark?</h2>
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <img src="./images/1.png" alt="Interactive Lessons Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
-                        <h3>Interactive Lessons</h3>
-                        <p>Engage with math concepts through fun and interactive modules.</p>
-                    </div>
-                    <div class="feature-item">
-                         <img src="./images/2.png" alt="Progress Tracking Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
-                        <h3>Progress Tracking</h3>
-                        <p>Monitor your learning journey and see how far you've come.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="./images/3.png" alt="Quizzes Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
-                        <h3>Quizzes After Each Lesson</h3>
-                        <p>Test your understanding and reinforce what you've learned.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="./images/4.png" alt="Test Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
-                        <h3>End-of-Course Test</h3>
-                        <p>Assess your overall mastery of the subject matter.</p>
-                    </div>
-                    <div class="feature-item">
-                         <img src="./images/5.png" alt="Gamified Learning Icon"> <!-- Placeholder Icon - Replace with actual horizontal icon -->
-                        <h3>Gamified Learning</h3>
-                        <p>Earn points, badges, and compete with friends!</p>
-                    </div>
+              <h2>Why Choose MathSpark?</h2>
+              <div class="feature-list" role="region" aria-label="MathSpark Features">
+                <!-- Repeatable Block -->
+                <div class="feature-item">
+                  <img src="./images/1.png" alt="Interactive Lessons Icon" loading="lazy" />
+                  <h3>Interactive Lessons</h3>
+                  <p>Engage with math concepts through fun and interactive modules.</p>
                 </div>
+                <div class="feature-item">
+                  <img src="./images/2.png" alt="Progress Tracking Icon" loading="lazy" />
+                  <h3>Progress Tracking</h3>
+                  <p>Monitor your learning journey and see how far you've come.</p>
+                </div>
+                <div class="feature-item">
+                  <img src="./images/3.png" alt="Quizzes Icon" loading="lazy" />
+                  <h3>Quizzes After Each Lesson</h3>
+                  <p>Test your understanding and reinforce what you've learned.</p>
+                </div>
+                <div class="feature-item">
+                  <img src="./images/4.png" alt="Test Icon" loading="lazy" />
+                  <h3>End-of-Course Test</h3>
+                  <p>Assess your overall mastery of the subject matter.</p>
+                </div>
+                <div class="feature-item">
+                  <img src="./images/5.png" alt="Gamified Learning Icon" loading="lazy" />
+                  <h3>Gamified Learning</h3>
+                  <p>Earn points, badges, and compete with friends!</p>
+                </div>
+              </div>
             </div>
-        </section>
+          </section>
 
         <section class="course-preview">
             <div class="container">
@@ -213,6 +176,19 @@
     <!-- Back to Top Button -->
     <button id="back-to-top" class="btn back-to-top">&#9650;</button>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Auto-update current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Toggle mobile navigation
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

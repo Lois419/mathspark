@@ -1,0 +1,125 @@
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+  }
+  
+  a {
+    color: #007acc;
+    text-decoration: none;
+  }
+  
+  /* Container */
+  .lesson-container, .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Hero Section */
+  .lesson-hero {
+    background: url('../images/navbar-bg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  
+  .lesson-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color:#009872
+  }
+  
+  .lesson-hero p {
+    font-size: 1.2rem;
+  }
+  
+  /* Lessons Section */
+  .custom-lessons {
+    padding: 60px 20px;
+    background: #fff;
+  }
+  
+  .custom-lessons-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #222;
+  }
+  
+  .custom-lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  /* Lesson Card Styles */
+  .custom-lesson-card {
+    background: #e9f6ff;
+    border-left: 6px solid #00b894; /* Green accent */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .custom-lesson-card:nth-child(2n) {
+    border-left-color: #007acc; /* Blue */
+  }
+  
+  .custom-lesson-card:nth-child(3n) {
+    border-left-color: #f39c12; /* Orange */
+  }
+  
+  .custom-lesson-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .custom-lesson-card h3 {
+    color: #007acc;
+    margin-bottom: 10px;
+  }
+  
+  .custom-lesson-card p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  /* Button */
+  .lesson-btn {
+    display: inline-block;
+    background: #00b894;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .lesson-btn:hover {
+    background: #009872;
+  }
+  
+  
+  
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 14px;
+    font-size: 20px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background-color: #007acc;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .back-to-top:hover {
+    background-color: #005e9e;
+  }
+  

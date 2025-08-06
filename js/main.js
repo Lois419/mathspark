@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resetInactivityTimer(); // Reset inactivity timer
         });
 
-        nextButton.addEventListener('clickphosphorylase })(
+        nextButton.addEventListener('click', () => {
             stopAutoScroll(); // Stop auto-scroll on manual interaction
             scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             resetInactivityTimer(); // Reset inactivity timer
@@ -93,17 +93,87 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBackToTopButton();
     }
 
-    // Login form submission handling
-    if (loginForm && passwordInput) {
-        loginForm.addEventListener('submit', function (event) {
-            // Assuming password strength is calculated and available, e.g., in a data attribute
-            // You might need to adjust this based on how password-strength.js exposes the strength
-            const passwordStrength = parseInt(passwordInput.dataset.strength || '0', 10);
-
-            if (passwordStrength < 80) {
-                event.preventDefault(); // Prevent form submission
-                alert('Password strength must be at least 80% to log in.'); // Or display a more user-friendly message
+    document.addEventListener('DOMContentLoaded', () => {
+        const loginForm = document.getElementById('login-form');
+        const passwordInput = document.getElementById('password');
+        const loginBtn = document.querySelector('.login-btn');
+    
+        // Set button to disabled by default
+        if (loginBtn) {
+            loginBtn.disabled = true;
+        }
+    
+        // Listen for strength changes (if strength bar is updated in real-time)
+        passwordInput.addEventListener('input', () => {
+            const strength = parseInt(passwordInput.dataset.strength || '0', 10);
+            if (strength >= 80) {
+                loginBtn.disabled = false;
+            } else {
+                loginBtn.disabled = true;
             }
         });
+    
+        // Prevent form submission if password too weak (extra layer of safety)
+        if (loginForm && passwordInput) {
+            loginForm.addEventListener('submit', function (event) {
+                const passwordStrength = parseInt(passwordInput.dataset.strength || '0', 10);
+                if (passwordStrength < 80) {
+                    event.preventDefault();
+                    alert('Password strength must be at least 80% to log in.');
+                }
+            });
+        }
+    });    
+
+    const passwordInput = document.getElementById('password');
+const togglePassword = document.getElementById('toggle-password');
+const strengthBar = document.querySelector('.strength-bar');
+const loginBtn = document.querySelector('.login-btn');
+
+if (togglePassword) {
+    togglePassword.addEventListener('click', () => {
+        const isVisible = passwordInput.type === 'text';
+        passwordInput.type = isVisible ? 'password' : 'text';
+        togglePassword.classList.toggle('fa-eye');
+        togglePassword.classList.toggle('fa-eye-slash');
+    });
+}
+
+passwordInput.addEventListener('input', function () {
+    const password = this.value;
+    let strength = 0;
+
+    const criteriaMet = {
+        length: password.length >= 8 && password.length <= 16,
+        lowercase: /[a-z]/.test(password),
+        uppercase: /[A-Z]/.test(password),
+        number: /[0-9]/.test(password),
+        special: /[^a-zA-Z0-9]/.test(password),
+    };
+
+    if (criteriaMet.length && criteriaMet.lowercase && criteriaMet.uppercase && criteriaMet.number && criteriaMet.special) {
+        strength += 25;
+        strength += 15;
+        strength += 15;
+        strength += 15;
+        strength += 30;
+        if (password.length > 12) strength += 10;
+        if (password.length > 14) strength += 5;
+    } else {
+        strength = 0;
+    }
+
+    strength = Math.min(strength, 100);
+    passwordInput.dataset.strength = strength;
+
+    if (strengthBar) {
+        strengthBar.style.width = strength + '%';
+        strengthBar.style.backgroundColor =
+            strength < 50 ? 'red' : strength < 80 ? 'orange' : 'green';
+    }
+
+    // Enable/disable login button
+    if (loginBtn) {
+        loginBtn.disabled = strength < 80;
     }
 });
